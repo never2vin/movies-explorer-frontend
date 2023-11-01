@@ -17,6 +17,6 @@
 
 ## Ссылки на проект
 
-[Backend](https://diploma.nomoredomainsrocks.ru)
+[Frontend](https://diploma.nomoredomainsrocks.ru)
 
 IP-адрес: 158.160.64.214
