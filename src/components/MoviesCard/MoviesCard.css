@@ -1,0 +1,158 @@
+.movie {
+  width: 360px;
+  display: block;
+  position: relative;
+}
+
+.movie__link {
+  color: #fff;
+  text-decoration: none;
+  border: none;
+}
+
+.movie__image {
+  width: 100%;
+  height: 201px;
+  display: block;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.movie__button {
+  width: 21px;
+  height: 21px;
+  position: absolute;
+  top: 14px;
+  right: 15px;
+  border-radius: 11px;
+}
+
+.movie__unlike-button {
+  background: url(../../images/movie_unlike-btn.svg) no-repeat center;
+}
+
+.movie__remove-button {
+  display: none;
+  background: url(../../images/movie_remove-btn.svg) no-repeat center;
+}
+
+.movie__remove-button:hover,
+.movie__link:hover + .movie__remove-button {
+  display: block;
+}
+
+.movie__like-button {
+  width: 72px;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 21px;
+  text-align: center;
+  display: none;
+  border-radius: 30px;
+  background: #313131;
+  box-sizing: border-box;
+}
+
+.movie__like-button:hover,
+.movie__link:hover + .movie__like-button {
+  display: block;
+}
+
+.movie__desc {
+  display: block;
+  padding-top: 14px;
+  padding-left: 14px;
+  position: relative;
+  min-height: 35px;
+}
+
+.movie__name {
+  max-width: 250px;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.movie__duration {
+  color: #8b8b8b;
+  width: 52px;
+  height: 18px;
+  display: block;
+  font-size: 11px;
+  line-height: 18px;
+  text-align: center;
+  background-color: #2f2f2f;
+  border-radius: 3px;
+  box-sizing: border-box;
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  margin: 0;
+}
+
+@media screen and (max-width: 1279px) {
+  .movie {
+    width: calc(339px + (360 - 339)*((100vw - 768px)/(1280 - 768)));
+  }
+
+  .movie__image {
+    height: calc(190px + (201 - 190)*((100vw - 768px)/(1280 - 768)));
+  }
+
+  .movie__desc {
+    padding-left: 0;
+    padding-top: 25px;
+    min-height: 23px;
+  }
+
+  .movie__duration {
+    top: 25px;
+    right: 0px;
+  }
+
+  .movie__name {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .movie {
+    width: calc(300px + (339 - 300)*((100vw - 320px)/(768 - 320)));
+  }
+
+  .movie__image {
+    height: calc(168px + (201 - 168)*((100vw - 320px)/(768 - 320)));
+  }
+}
+
+
+@media screen and (max-width: 320px) {
+  .movie__button {
+    top: 10px;
+    right: 10px;
+  }
+
+  .movie__like-button,
+  .movie__remove-button {
+    display: block;
+  }
+
+  .movie__desc {
+    padding-top: 16px;
+    min-height: 24px;
+  }
+
+  .movie__duration {
+    top: 16px;
+    right: 0px;
+  }
+
+  .movie__name {
+    max-width: 230px;
+    font-size: 12px;
+  }
+}

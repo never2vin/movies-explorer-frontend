@@ -1,0 +1,60 @@
+.profile {
+  min-height: 482px;
+  display: flex;
+  justify-content: center;
+}
+
+.profile__container {
+  width: 410px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile__title {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 29px;
+  margin: 74px 0 113px;
+}
+
+.profile__logout-button {
+  color: #EE3465;
+  text-align: center;
+  font-family: Inter;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  background-color: inherit;
+  margin-top: 17px;
+}
+
+@media screen and (max-width: 1279px) {
+  .profile__title {
+    margin-top: calc(236px + (74 - 236)*((100vw - 768px)/(1280 - 768)));
+    margin-bottom: calc(86px + (113 - 86)*((100vw - 768px)/(1280 - 768)));
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .profile__container {
+    width: calc(260px + (410 - 260)*((100vw - 320px)/(768 - 320)));
+  }
+
+  .profile__title {
+    margin-top: calc(70px + (236 - 70)*((100vw - 320px)/(768 - 320)));
+    margin-bottom: calc(70px + (86 - 70)*((100vw - 320px)/(768 - 320)));
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .profile__title {
+    margin: 70px 0 70px;
+  }
+
+  .profile__logout-button {
+    font-size: 12px;
+    margin-top: 17px;
+  }
+}

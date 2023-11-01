@@ -1,0 +1,13 @@
+.about-project__deadline-text {
+  font-size: 14px;
+  line-height: 36px;
+  text-align: center;
+  margin: 0;
+}
+
+@media screen and (max-width: 580px) {
+  .about-project__deadline-text {
+    font-size: 11px;
+    line-height: 35px;
+  }
+}

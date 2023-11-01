@@ -1,0 +1,15 @@
+.techs__heading {
+  margin-bottom: 90px;
+}
+
+@media screen and (max-width: 984px) {
+  .techs__heading {
+    margin-bottom: 80px;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .techs__heading {
+    margin-bottom: 60px;
+  }
+}

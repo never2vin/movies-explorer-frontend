@@ -1,0 +1,9 @@
+.about-me__portfolio-item {
+  border-bottom: 1px solid #424242;
+  padding-bottom: 19px;
+  box-sizing: border-box;
+}
+
+.about-me__portfolio-item:last-child {
+  border-bottom: none;
+}

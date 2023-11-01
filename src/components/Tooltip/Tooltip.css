@@ -1,0 +1,24 @@
+.tooltip {
+  width: 100%;
+  min-height: 28px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  visibility: hidden;
+  margin-bottom: 20px;
+}
+
+.tooltip_visible {
+  visibility: visible;
+}
+
+.tooltip__error-text {
+  color: var(--color-error);
+  font-size: 11px;
+  text-align: center;
+  margin: 0;
+}
+
+.tooltip__error-code {
+  font-weight: 500;
+}
