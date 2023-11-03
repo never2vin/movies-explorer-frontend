@@ -7,7 +7,7 @@ function AboutMe() {
       <h2 className="about-me__heading">Студент</h2>
       <div className="about-me__info">
         <div className="about-me__text">
-          <h2 className="about-me__title">Виталий</h2>
+          <h3 className="about-me__title">Виталий</h3>
           <p className="about-me__subtitle">Фронтенд-разработчик, 30 лет</p>
           <p className="about-me__desc">
             Я&nbsp;родился и&nbsp;живу в&nbsp;Саратове, закончил факультет
@@ -18,7 +18,7 @@ function AboutMe() {
             фриланс-заказами и ушёл с&nbsp;постоянной работы.
           </p>
           <a
-            href="https://github.com"
+            href="https://github.com/never2vin"
             className="about-me__link page__link"
             target="_blank"
             rel="noopener noreferrer"
@@ -32,7 +32,7 @@ function AboutMe() {
       <ol className="about-me__portfolio-list page__list">
         <li className="about-me__portfolio-item">
           <a
-            href="https://github.com"
+            href="https://github.com/never2vin/how-to-learn"
             className="about-me__portfolio-link page__link"
             target="_blank"
             rel="noopener noreferrer"
@@ -42,7 +42,7 @@ function AboutMe() {
         </li>
         <li className="about-me__portfolio-item">
           <a
-            href="https://github.com"
+            href="https://github.com/never2vin/russian-travel"
             className="about-me__portfolio-link page__link"
             target="_blank"
             rel="noopener noreferrer"
@@ -52,7 +52,7 @@ function AboutMe() {
         </li>
         <li className="about-me__portfolio-item">
           <a
-            href="https://github.com"
+            href="https://github.com/never2vin/react-mesto-api-full-gha"
             className="about-me__portfolio-link page__link"
             target="_blank"
             rel="noopener noreferrer"
