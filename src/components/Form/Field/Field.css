@@ -31,7 +31,7 @@
 }
 
 .field__auth-label {
-  color: #8b8b8b;
+  color: var(--color-gray);
   font-size: 10px;
 }
 
@@ -39,14 +39,14 @@
   font-size: 13px;
   line-height: 16px;
 
-  background-color: #2f2f2f;
+  background-color: var(--bg-color-dark-gray);
   border: 1px solid transparent;
   border-radius: 8px;
   padding: 14px 14px;
 }
 
 .field__auth-input:focus {
-  border-color: #4285f4;
+  border-color: var(--color-blue);
   outline: none;
 }
 
@@ -71,16 +71,16 @@
   font-size: 11px;
   text-align: end;
   line-height: 14px;
-  border-bottom: 1px solid #424242;;
+  border-bottom: 1px solid var(--border-color-primary);
   border-radius: 0;
   background-color: inherit;
   padding: 10px 0 16px 50px;
   margin: 0;
 }
 
-.field__profile:last-of-type >
-.field__profile-input {
-  border: none;
+.field__profile-input:focus {
+  border-color: var(--color-light);
+  outline: none;
 }
 
 .field__profile > .field__error {
