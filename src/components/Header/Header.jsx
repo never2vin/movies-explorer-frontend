@@ -22,7 +22,7 @@ function Header() {
           isLargeDevice ? (
             <>
               <nav className="header__menu">
-                <ul className="header__menu-links page__list">
+                <ul className="header__menu-list page__list">
                   <li>
                     <NavLink to={'/movies'} className={setActive}>
                       Фильмы
@@ -45,15 +45,11 @@ function Header() {
               className="page__button header__menu-button "
               onClick={onClickMenu}
               aria-label="Открыть меню"
-            >
-              <span />
-              <span />
-              <span />
-            </button>
+            />
           )
         ) : (
           <nav className="header__auth">
-            <ul className="header__auth-links page__list">
+            <ul className="header__auth-list page__list">
               <li>
                 <Link to="/signup" className="page__link header__auth-link">
                   Регистрация
