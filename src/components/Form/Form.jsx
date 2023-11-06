@@ -31,6 +31,8 @@ function Form({ formType, formValues, onSubmit }) {
       id: 'name',
       label: 'Имя',
       type: 'text',
+      minLength: 2,
+      maxLength: 30,
     },
     {
       label: 'E-mail',
@@ -43,6 +45,7 @@ function Form({ formType, formValues, onSubmit }) {
       id: 'password',
       type: 'password',
       minLength: 3,
+      maxLength: 24,
     },
   ];
 
