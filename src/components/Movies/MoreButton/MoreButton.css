@@ -7,13 +7,13 @@
 .more__button {
   width: 320px;
   height: 36px;
-  color: #fff;
+  color: var(--color-light);
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
   background-color: inherit;
-  border: 1px solid #424242;
+  border: 1px solid var(--border-color-primary);
   border-radius: 6px;
   margin-top: 50px;
   margin-bottom: 80px;

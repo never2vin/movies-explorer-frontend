@@ -2,15 +2,15 @@ import './MoreButton.css';
 
 function MoreButton({ handleMoreClick }) {
   return (
-    <section className="more">
+    <div className="more">
       <button
-        type="more__button"
+        type="button"
         className={'page__button more__button'}
         onClick={handleMoreClick}
       >
         Ещё
       </button>
-    </section>
+    </div>
   );
 }
 
