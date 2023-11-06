@@ -3,6 +3,7 @@
   height: 20px;
   display: inline-block;
   position: relative;
+  transition: opacity 0.5s;
 }
 
 .checkbox__input {
@@ -57,4 +58,10 @@
 .checkbox__input:focus-visible + .checkbox__slider::before {
   outline: 1px solid #a0a0a0;
   outline-offset: 2px;
+}
+
+@media screen and (hover: hover) {
+  .checkbox:hover {
+    opacity: .7;
+  }
 }

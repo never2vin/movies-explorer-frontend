@@ -5,59 +5,51 @@ import './SearchForm.css';
 
 function SearchForm() {
   const [searchValue, setSearchValue] = useState('');
-  const [isInputValid, setIsInputValid] = useState(true);
 
   const handleChange = (e) => {
-    const value = e.target.value;
+    const input = e.target;
 
-    setSearchValue(value);
-    setIsInputValid(!!value);
+    setSearchValue(input.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (searchValue === '') return setIsInputValid(false);
+    if (searchValue === '') return;
 
     console.log(searchValue);
   };
 
   return (
-    <div className="search">
+    <section className="search" aria-label="Поиск фильмов">
       <form onSubmit={handleSubmit} className="search__form" noValidate>
-        <div className="search__field">
-          <input
-            className="page__input search__input"
-            type="search"
-            id="search"
-            name="search"
-            value={searchValue || ''}
-            onChange={handleChange}
-            placeholder="Фильм"
-            autoFocus
-            aria-describedby="search-error"
-            aria-invalid="true"
-          />
-          <span
-            id="search-error"
-            className={`search__error ${
-              !isInputValid ? 'search__error_visible' : ''
-            }`}
-          >
-            Введите ключевое слово
-          </span>
+        <div className="search__row">
+          <label className="search__label">
+            <input
+              className="page__input search__input"
+              type="search"
+              id="search"
+              name="search"
+              value={searchValue || ''}
+              onChange={handleChange}
+              placeholder="Фильм"
+              required
+              autoFocus
+              aria-describedby="search-error"
+              aria-invalid="true"
+            />
+            <span id="search-error" className="search__error">
+              Нужно ввести ключевое слово
+            </span>
+          </label>
+          <button type="submit" className="page__button search__button" />
         </div>
-        <button
-          type="submit"
-          className="page__button search__button"
-          aria-describedby="description"
-        />
+        <div className="search__filter">
+          <FilterCheckbox />
+          <p className="search__filter-text">Короткометражки</p>
+        </div>
       </form>
-      <div className="search__filter">
-        <FilterCheckbox />
-        <p className="search__filter-text">Короткометражки</p>
-      </div>
-    </div>
+    </section>
   );
 }
 
