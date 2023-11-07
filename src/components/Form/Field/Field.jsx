@@ -2,14 +2,15 @@ import './Field.css';
 
 function Field({ formType, id, label, error, ...props }) {
   return (
-    <div className={`field__${formType}`}>
-      <label className={`field__${formType}-label`} htmlFor={id}>
+    <div className={`field field-${formType}`}>
+      <label className={`field-${formType}__label`} htmlFor={id}>
         {label}
       </label>
       <input
-        className={`page__input field__input field__${formType}-input`}
+        className={`page__input field__input field-${formType}__input`}
         id={id}
         name={id}
+        placeholder={label}
         {...props}
         required
         aria-describedby={`${id}-error`}

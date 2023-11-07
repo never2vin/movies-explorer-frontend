@@ -12,7 +12,7 @@ function Login({ onSubmit }) {
   const { email } = useContext(CurrentUserContext);
 
   return (
-    <section className="login">
+    <main className="login">
       <div className="login__container">
         <Link to={'/'} className="login__link">
           <img src={logo} alt="Логотип" className="login__logo" />
@@ -30,7 +30,7 @@ function Login({ onSubmit }) {
           </Link>
         </div>
       </div>
-    </section>
+    </main>
   );
 }
 

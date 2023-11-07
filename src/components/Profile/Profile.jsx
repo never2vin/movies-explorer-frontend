@@ -2,9 +2,9 @@ import { useContext } from 'react';
 
 import './Profile.css';
 
-import Form from '../Form/Form';
-
-import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+import Form from 'components/Form/Form';
+import { CurrentUserContext } from 'contexts/CurrentUserContext';
+import { Link } from 'react-router-dom';
 
 function Profile({ onSubmit, onLogout }) {
   const { name, email } = useContext(CurrentUserContext);
@@ -19,13 +19,9 @@ function Profile({ onSubmit, onLogout }) {
           onSubmit={onSubmit}
         />
         <div className="profile__logout">
-          <button
-            type="button"
-            className="page__button profile__logout-button"
-            onClick={onLogout}
-          >
+          <Link to="/" className="page__link profile__logout-link">
             Выйти из аккаунта
-          </button>
+          </Link>
         </div>
       </div>
     </main>

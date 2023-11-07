@@ -18,16 +18,14 @@
   margin: 74px 0 113px;
 }
 
-.profile__logout-button {
+.profile__logout {
+  margin-top: 14px;
+}
+
+.profile__logout-link {
   color: #EE3465;
-  text-align: center;
-  font-family: Inter;
   font-size: 13px;
-  font-style: normal;
   font-weight: 500;
-  line-height: normal;
-  background-color: inherit;
-  margin-top: 17px;
 }
 
 @media screen and (max-width: 1279px) {
@@ -53,8 +51,11 @@
     margin: 70px 0 70px;
   }
 
-  .profile__logout-button {
+  .profile__logout {
+    margin-top: 12px;
+  }
+
+  .profile__logout-link {
     font-size: 12px;
-    margin-top: 17px;
   }
 }

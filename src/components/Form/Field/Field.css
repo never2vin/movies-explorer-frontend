@@ -24,40 +24,40 @@
 /* Стили для полей при авторизации
  и регистрации пользователя */
 
-.field__auth {
+.field-auth {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.field__auth-label {
-  color: #8b8b8b;
+.field-auth__label {
+  color: var(--color-gray);
   font-size: 10px;
 }
 
-.field__auth-input {
+.field-auth__input {
   font-size: 13px;
   line-height: 16px;
 
-  background-color: #2f2f2f;
+  background-color: var(--bg-color-dark-gray);
   border: 1px solid transparent;
   border-radius: 8px;
   padding: 14px 14px;
 }
 
-.field__auth-input:focus {
-  border-color: #4285f4;
+.field-auth__input:focus {
+  border-color: var(--color-blue);
   outline: none;
 }
 
 /* Стили для полей при авторизации
  и регистрации пользователя */
 
-.field__profile {
+.field-profile {
   position: relative;
 }
 
-.field__profile-label {
+.field-profile__label {
   font-size: 11px;
   font-weight: 500;
   line-height: 14px;
@@ -67,22 +67,22 @@
   left: 0;
 }
 
-.field__profile-input {
+.field-profile__input {
   font-size: 11px;
   text-align: end;
   line-height: 14px;
-  border-bottom: 1px solid #424242;;
+  border-bottom: 1px solid var(--border-color-primary);
   border-radius: 0;
   background-color: inherit;
   padding: 10px 0 16px 50px;
   margin: 0;
 }
 
-.field__profile:last-of-type >
-.field__profile-input {
-  border: none;
+.field-profile__input:focus {
+  border-color: var(--color-light);
+  outline: none;
 }
 
-.field__profile > .field__error {
+.field-profile > .field__error {
   min-height: 7px;
 }

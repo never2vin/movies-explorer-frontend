@@ -3,12 +3,27 @@
 @import url(./vendor/fonts.css);
 
 .page {
-  --color-main: #fff;
+  --color-light: #fff;
+  --color-dark: #000;
+  --color-gray: #8b8b8b;
+  --color-green: #3ddc84;
+  --color-blue: #4285f4;
   --color-error: #ff004c;
-  --color-form: #fff;
+
+  --color-form: var(--color-light);
   --color-form-error: #ee3465;
 
-  color: var(--color-main);
+  --border-color-primary: #424242;
+  --border-color-secondary: #dadada;
+
+  --bg-color-primary: #202020;
+  --bg-color-secondary: #272727;
+  --bg-color-blue: var(--color-blue);
+  --bg-color-green: var(--color-green);
+  --bg-color-dark-gray: #2f2f2f;
+  --bg-color-dark-gray-secondary: #303030;
+
+  color: var(--color-light);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -19,7 +34,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  background-color: #202020;
+  background-color: var(--bg-color-primary);
 }
 
 .page__container {
@@ -44,6 +59,7 @@
 }
 
 .page__link {
+  color: var(--color-light);
   text-decoration: none;
   border: none;
   opacity: 1;
@@ -71,7 +87,7 @@
 }
 
 .page__button:focus-visible {
-  outline: 1px solid #fff;
+  outline: 1px solid var(--color-light);
   outline-offset: 1px;
 }
 

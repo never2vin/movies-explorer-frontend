@@ -12,7 +12,7 @@ function Register({ onSubmit }) {
   const currentUser = useContext(CurrentUserContext);
 
   return (
-    <section className="register">
+    <main className="register">
       <div className="register__container">
         <Logo />
         <h1 className="register__title">Добро пожаловать!</h1>
@@ -24,7 +24,7 @@ function Register({ onSubmit }) {
           </Link>
         </div>
       </div>
-    </section>
+    </main>
   );
 }
 

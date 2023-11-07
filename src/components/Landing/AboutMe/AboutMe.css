@@ -12,7 +12,7 @@
   font-weight: 400;
   line-height: 27px;
   letter-spacing: -0.88px;
-  border-bottom: 1px solid #dadada;
+  border-bottom: 1px solid var(--border-color-secondary);
   padding-bottom: 23px;
   margin: 0 0 66px;
 }
@@ -53,7 +53,6 @@
 }
 
 .about-me__link {
-  color: #fff;
   font-size: 14px;
   font-weight: 500;
   line-height: 17px;
@@ -68,7 +67,7 @@
 }
 
 .about-me__portfolio {
-  color: #8b8b8b;
+  color: var(--color-gray);
   font-size: 18px;
   font-weight: 400;
   line-height: 20px;
@@ -84,7 +83,7 @@
 }
 
 .about-me__portfolio-item {
-  border-bottom: 1px solid #424242;
+  border-bottom: 1px solid var(--border-color-primary);
   padding-bottom: 19px;
   box-sizing: border-box;
 }
@@ -95,7 +94,6 @@
 }
 
 .about-me__portfolio-link {
-  color: #fff;
   font-size: 30px;
   line-height: 50px;
   letter-spacing: -1.2px;
@@ -163,6 +161,10 @@
     margin-bottom: 90px;
   }
 
+  .about-me__portfolio-item {
+    border-bottom-color: #e6e6e6;
+  }
+
   .about-me__portfolio-link {
     font-size: 28px;
     letter-spacing: -1.12px;
@@ -215,7 +217,7 @@
   .about-me__desc {
     font-size: 11px;
     line-height: 16px;
-    margin-bottom: 40px;
+    margin-bottom: 38px;
   }
 
   .about-me__avatar {
