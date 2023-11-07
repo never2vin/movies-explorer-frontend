@@ -24,18 +24,18 @@
 /* Стили для полей при авторизации
  и регистрации пользователя */
 
-.field__auth {
+.field-auth {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.field__auth-label {
+.field-auth__label {
   color: var(--color-gray);
   font-size: 10px;
 }
 
-.field__auth-input {
+.field-auth__input {
   font-size: 13px;
   line-height: 16px;
 
@@ -45,7 +45,7 @@
   padding: 14px 14px;
 }
 
-.field__auth-input:focus {
+.field-auth__input:focus {
   border-color: var(--color-blue);
   outline: none;
 }
@@ -53,11 +53,11 @@
 /* Стили для полей при авторизации
  и регистрации пользователя */
 
-.field__profile {
+.field-profile {
   position: relative;
 }
 
-.field__profile-label {
+.field-profile__label {
   font-size: 11px;
   font-weight: 500;
   line-height: 14px;
@@ -67,7 +67,7 @@
   left: 0;
 }
 
-.field__profile-input {
+.field-profile__input {
   font-size: 11px;
   text-align: end;
   line-height: 14px;
@@ -78,11 +78,11 @@
   margin: 0;
 }
 
-.field__profile-input:focus {
+.field-profile__input:focus {
   border-color: var(--color-light);
   outline: none;
 }
 
-.field__profile > .field__error {
+.field-profile > .field__error {
   min-height: 7px;
 }
