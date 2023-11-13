@@ -1,23 +1,36 @@
 import { useState } from 'react';
 
-import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
+import FilterCheckbox from 'components/FilterCheckbox/FilterCheckbox';
 import './SearchForm.css';
 
-function SearchForm() {
-  const [searchValue, setSearchValue] = useState('');
+function SearchForm({
+  isChecked,
+  isCheckDisabled,
+  onCheck,
+  searchValue,
+  isSubmitDisabled,
+  onSubmit,
+}) {
+  const [value, setValue] = useState(searchValue || '');
 
   const handleChange = (e) => {
     const input = e.target;
 
-    setSearchValue(input.value);
+    setValue(input.value);
+  };
+
+  const handleCheck = (e) => {
+    const input = e.target;
+
+    onCheck(input.checked);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (searchValue === '') return;
+    if (value === '') return;
 
-    console.log(searchValue);
+    onSubmit(value);
   };
 
   return (
@@ -30,7 +43,7 @@ function SearchForm() {
               type="search"
               id="search"
               name="search"
-              value={searchValue || ''}
+              value={value || ''}
               onChange={handleChange}
               placeholder="Фильм"
               required
@@ -42,10 +55,18 @@ function SearchForm() {
               Нужно ввести ключевое слово
             </span>
           </label>
-          <button type="submit" className="page__button search__button" />
+          <button
+            type="submit"
+            className="page__button search__button"
+            disabled={isSubmitDisabled || false}
+          />
         </div>
         <div className="search__filter">
-          <FilterCheckbox />
+          <FilterCheckbox
+            isChecked={isChecked}
+            isDisabled={isCheckDisabled}
+            onChange={handleCheck}
+          />
           <p className="search__filter-text">Короткометражки</p>
         </div>
       </form>

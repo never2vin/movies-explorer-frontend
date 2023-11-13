@@ -1,4 +1,7 @@
+import { useContext } from 'react';
+
 import { useLocation } from 'react-router-dom';
+import { AppContext } from 'contexts/AppContext';
 
 import './MoviesCard.css';
 
@@ -16,9 +19,10 @@ function formatDuration(duration) {
 
 function MoviesCard({ movie, savedMovies }) {
   const { pathname } = useLocation();
+  const { onSaveMovie, onRemoveMovie } = useContext(AppContext);
 
   function getIsSaved() {
-    return savedMovies.some((item) => item.movieId === movie.id);
+    return savedMovies.some((i) => i.movieId === movie.movieId);
   }
 
   const button =
@@ -43,13 +47,13 @@ function MoviesCard({ movie, savedMovies }) {
     );
 
   function handleRemoveClick() {
-    console.log('remove button click!');
+    onRemoveMovie(movie);
   }
 
   function handleSaveClick() {
     getIsSaved()
-      ? console.log('saved button click!')
-      : console.log('save button click!');
+      ? onRemoveMovie(savedMovies.find((i) => i.movieId === movie.movieId))
+      : onSaveMovie(movie);
   }
 
   return (
@@ -60,11 +64,7 @@ function MoviesCard({ movie, savedMovies }) {
         target="_blank"
         rel="noreferrer"
       >
-        <img
-          src={pathname === '/movies' ? movie.image.url : movie.image}
-          alt={movie.nameRU}
-          className="movie__image"
-        />
+        <img src={movie.image} alt={movie.nameRU} className="movie__image" />
       </a>
       {button}
       <div className="movie__desc">

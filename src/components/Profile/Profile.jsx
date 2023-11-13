@@ -4,7 +4,6 @@ import './Profile.css';
 
 import Form from 'components/Form/Form';
 import { CurrentUserContext } from 'contexts/CurrentUserContext';
-import { Link } from 'react-router-dom';
 
 function Profile({ onSubmit, onLogout }) {
   const { name, email } = useContext(CurrentUserContext);
@@ -19,9 +18,12 @@ function Profile({ onSubmit, onLogout }) {
           onSubmit={onSubmit}
         />
         <div className="profile__logout">
-          <Link to="/" className="page__link profile__logout-link">
+          <button
+            className="page__button profile__logout-button"
+            onClick={onLogout}
+          >
             Выйти из аккаунта
-          </Link>
+          </button>
         </div>
       </div>
     </main>

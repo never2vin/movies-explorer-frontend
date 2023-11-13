@@ -46,6 +46,11 @@
   transition: background-color .3s, left .3s;
 }
 
+.checkbox,
+.checkbox__input:disabled {
+  opacity: .7;
+}
+
 .checkbox__input:checked + .checkbox__slider::before {
   background-color: #2be080;
 }

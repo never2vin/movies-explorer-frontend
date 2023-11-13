@@ -12,13 +12,20 @@
   visibility: visible;
 }
 
-.tooltip__error-text {
-  color: var(--color-error);
+.tooltip__error-status {
+  font-weight: 500;
+}
+
+.tooltip__text {
   font-size: 11px;
   text-align: center;
   margin: 0;
 }
 
-.tooltip__error-code {
-  font-weight: 500;
+.tooltip__error-text {
+  color: var(--color-error);
+}
+
+.tooltip__success-text {
+  color: var(--color-light);
 }

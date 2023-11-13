@@ -1,9 +1,10 @@
 import { useState } from 'react';
 
-const useForm = (onSubmit) => {
-  const [form, setForm] = useState({});
+const useForm = (initialState, onSubmit) => {
+  const [form, setForm] = useState(initialState);
   const [errors, setErrors] = useState({});
-  const [isValid, setIsValid] = useState(false);
+  const [isDirty, setIsDirty] = useState(false);
+  const [isValid, setIsValid] = useState(true);
 
   const handleChange = (e) => {
     const input = e.target;
@@ -18,22 +19,25 @@ const useForm = (onSubmit) => {
       [input.name]: input.value,
     });
 
+    setIsDirty(initialState[input.name] !== input.value);
     setIsValid(input.form.checkValidity());
   };
 
-  const setInitialState = (initialState) => {
-    setForm(initialState);
+  const reset = (values) => {
+    setForm(values);
     setErrors({});
+    setIsDirty(false);
     setIsValid(true);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    onSubmit(form);
+  return {
+    form,
+    errors,
+    isDirty,
+    isValid,
+    handleChange,
+    reset,
   };
-
-  return { form, errors, isValid, handleChange, handleSubmit, setInitialState };
 };
 
 export default useForm;

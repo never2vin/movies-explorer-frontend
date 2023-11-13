@@ -1,54 +1,79 @@
-import { useState, useContext, useEffect } from 'react';
+import { useState, useContext } from 'react';
 
 import Preloader from 'components/Preloader/Preloader';
 import SearchForm from 'components/SearchForm/SearchForm';
 import MoviesCardList from 'components/MoviesCardList/MoviesCardList';
-import Tooltip from 'components/Tooltip/Tooltip';
 import { AppContext } from 'contexts/AppContext';
-import { movies } from 'utils/constants';
+import { filter } from 'utils/filter';
 
 import MoreButton from './MoreButton/MoreButton';
 
 import './Movies.css';
 
 function Movies() {
-  const { width, isLoading, isError } = useContext(AppContext);
-  const [limit, setLimit] = useState(0);
-  const [savedMovies, setSavedMovies] = useState([]);
+  const {
+    paramRef,
+    isLoading,
+    savedMovies,
+    movies,
+    moviesState,
+    setMoviesState,
+    setIsFirstSearch,
+  } = useContext(AppContext);
 
-  useEffect(() => {
-    if (width > 1279) {
-      setLimit(11);
-      setSavedMovies([{ movieId: 2 }, { movieId: 6 }]);
-    } else if (width > 767) {
-      setLimit(7);
-      setSavedMovies([{ movieId: 2 }, { movieId: 4 }]);
-    } else {
-      setLimit(5);
-      setSavedMovies([{ movieId: 1 }, { movieId: 4 }]);
-    }
-  }, [width]);
+  const {
+    searchValue,
+    isShortChecked,
+    isShortDisabled,
+    isSubmitDisabled,
+    errorMessage,
+  } = moviesState;
+  const { number, limit } = paramRef.current;
+  const [numberOfCard, setNumberOfCard] = useState(number);
+
+  function onMoreClick() {
+    setNumberOfCard((state) => state + limit);
+  }
+
+  function toggleShortCheck(isShortChecked) {
+    setMoviesState({ ...moviesState, isShortChecked });
+  }
+
+  function onSearchSubmit(value) {
+    setIsFirstSearch(true);
+    setMoviesState({ ...moviesState, searchValue: value });
+    setNumberOfCard(number);
+  }
+
+  const filteredItems = filter(
+    movies,
+    ['nameRU', 'nameEN'],
+    searchValue,
+    isShortChecked
+  );
 
   return (
     <main className="movies">
-      <SearchForm />
-      {isError ? (
-        <Tooltip>
-          <p className="tooltip__error-text" id="description">
-            <span className="tooltip__error-code">500</span> На сервере
-            произошла ошибка.
-          </p>
-        </Tooltip>
-      ) : isLoading ? (
+      <SearchForm
+        isChecked={isShortChecked}
+        isCheckDisabled={isShortDisabled}
+        onCheck={toggleShortCheck}
+        searchValue={searchValue}
+        isSubmitDisabled={isSubmitDisabled}
+        onSubmit={onSearchSubmit}
+      />
+      {isLoading ? (
         <Preloader />
       ) : (
         <>
           <MoviesCardList
-            movies={movies.filter((item, index) => index < limit)}
+            movies={filteredItems.slice(0, numberOfCard)}
             savedMovies={savedMovies}
-            id={'id'}
+            errorMessage={errorMessage}
           />
-          <MoreButton />
+          {filteredItems.length > numberOfCard && (
+            <MoreButton onClick={onMoreClick} />
+          )}
         </>
       )}
     </main>

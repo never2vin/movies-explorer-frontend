@@ -1,18 +1,15 @@
-import React, { useState } from 'react';
 import './FilterCheckbox.css';
 
-function FilterCheckbox() {
-  const [isChecked, setIsChecked] = useState(true);
-  const onToggle = () => setIsChecked(!isChecked);
-
+function FilterCheckbox({ isDisabled, isChecked, onChange }) {
   return (
     <label className="checkbox" htmlFor="checkbox">
       <input
         className="checkbox__input"
         type="checkbox"
         id="checkbox"
-        checked={isChecked}
-        onChange={onToggle}
+        disabled={isDisabled}
+        checked={isChecked || ''}
+        onChange={onChange}
       />
       <span className="checkbox__slider" />
     </label>
