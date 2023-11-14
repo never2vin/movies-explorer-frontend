@@ -189,10 +189,10 @@ function App() {
 
     api
       .registerUser(data)
-      .then(() => {
+      .then((res) => {
         console.log('Регистрация прошла успешно!');
 
-        navigate('/movies', { replace: true });
+        if (res) onLogin(data);
       })
       .catch((error) => {
         console.log(error);

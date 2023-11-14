@@ -1,8 +1,6 @@
-// import MAIN_API_URL from '../../config.js';
-
 const MAIN_API_URL =
   process.env.REACT_APP_MAIN_API_URL ||
-  'https://api.diploma.nomoredomainsicu.ru';
+  'https://api.diploma.nomoredomainsrocks.ru';
 
 class Api {
   constructor(baseUrl) {
@@ -34,7 +32,7 @@ class Api {
     return res.ok ? res.json() : Promise.reject(res.status);
   }
 
-  registerUser(name, email, password) {
+  registerUser({ name, email, password }) {
     return this._request('signup', 'POST', { name, email, password });
   }
 
