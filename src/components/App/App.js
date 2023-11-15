@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { AppContext } from 'contexts/AppContext';
 import { CurrentUserContext } from 'contexts/CurrentUserContext';
 import useWindowSize from 'hooks/useWindowSize';
@@ -23,7 +23,7 @@ import './App.css';
 function App() {
   const { width } = useWindowSize();
 
-  const [token, setToken] = useState('');
+  const [token, setToken] = useLocalStorage('jwt', '');
   const [currentUser, setCurrentUser] = useState({});
 
   const [movies, setMovies] = useState([]);
@@ -44,6 +44,7 @@ function App() {
   const [isLargeDevice, setIsLargeDevice] = useState(false);
 
   const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   const paramRef = useRef({});
 
@@ -66,14 +67,11 @@ function App() {
   }, [width]);
 
   useEffect(() => {
-    const jwt = localStorage.getItem('jwt');
-    setToken(jwt);
-  }, []);
-
-  useEffect(() => {
     if (!token) {
       return;
     }
+
+    setLoading(true);
 
     api
       .getUserInfo(token)
@@ -81,7 +79,13 @@ function App() {
         setCurrentUser(data);
         setLoggedIn(true);
 
-        navigate('/movies', { replace: true });
+        if (pathname === '/signin' || pathname === '/signup') {
+          navigate('/movies', { replace: true });
+        } else {
+          navigate(pathname);
+        }
+
+        setLoading(false);
       })
       .catch(console.error);
   }, [token]);
@@ -190,8 +194,6 @@ function App() {
     api
       .registerUser(data)
       .then((res) => {
-        console.log('Регистрация прошла успешно!');
-
         if (res) onLogin(data);
       })
       .catch((error) => {
@@ -211,8 +213,6 @@ function App() {
     api
       .authorizeUser(data)
       .then((res) => {
-        console.log('Авторизация прошла успешно!');
-
         localStorage.setItem('jwt', res.token);
         setToken(res.token);
       })
@@ -277,9 +277,6 @@ function App() {
   }
 
   function onSignOut() {
-    localStorage.removeItem('jwt');
-    localStorage.removeItem('moviesState');
-    localStorage.removeItem('savedState');
     setLoggedIn(false);
     setIsFirstSearch(false);
     setCurrentUser({});
@@ -287,6 +284,8 @@ function App() {
     setSavedState({});
     setMovies([]);
     setToken('');
+
+    localStorage.clear();
 
     navigate('/', { replace: true });
   }
