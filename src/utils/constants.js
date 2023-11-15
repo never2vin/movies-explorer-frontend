@@ -21,5 +21,21 @@ const MESSAGES = {
 };
 
 const SHORT_DURATION = 40;
+const MIDDLE = 1279;
+const SMALL = 767;
 
-export { MOVIES_API_URL, MAIN_API_URL, MESSAGES, SHORT_DURATION };
+const LARGE_PARAMS = { number: 12, limit: 3 };
+const MIDDLE_PARAMS = { number: 8, limit: 2 };
+const SMALL_PARAMS = { number: 5, limit: 2 };
+
+export {
+  MOVIES_API_URL,
+  MAIN_API_URL,
+  MESSAGES,
+  SHORT_DURATION,
+  MIDDLE,
+  SMALL,
+  LARGE_PARAMS,
+  MIDDLE_PARAMS,
+  SMALL_PARAMS,
+};

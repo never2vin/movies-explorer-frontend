@@ -16,7 +16,14 @@ import PageNotFound from 'components/PageNotFound/PageNotFound';
 import ProtectedRoute from 'hoc/ProtectedRoute';
 import api from 'utils/MainApi';
 import { getAllMovies } from 'utils/MoviesApi';
-import { MOVIES_API_URL } from 'utils/constants';
+import {
+  MOVIES_API_URL,
+  MIDDLE,
+  SMALL,
+  LARGE_PARAMS,
+  MIDDLE_PARAMS,
+  SMALL_PARAMS,
+} from 'utils/constants';
 
 import './App.css';
 
@@ -49,7 +56,7 @@ function App() {
   const paramRef = useRef({});
 
   useEffect(() => {
-    if (width > 768) {
+    if (width > SMALL + 1) {
       setIsLargeDevice(true);
     } else {
       setIsLargeDevice(false);
@@ -57,12 +64,12 @@ function App() {
   }, [width]);
 
   useEffect(() => {
-    if (width > 1279) {
-      paramRef.current = { number: 12, limit: 3 };
-    } else if (width > 767) {
-      paramRef.current = { number: 8, limit: 2 };
+    if (width > MIDDLE) {
+      paramRef.current = LARGE_PARAMS;
+    } else if (width > SMALL) {
+      paramRef.current = MIDDLE_PARAMS;
     } else {
-      paramRef.current = { number: 5, limit: 2 };
+      paramRef.current = SMALL_PARAMS;
     }
   }, [width]);
 
