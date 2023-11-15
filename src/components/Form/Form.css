@@ -47,10 +47,6 @@
   content: '';
 }
 
-.form__submit:disabled {
-  opacity: 0.5;
-}
-
 .form__submit_is-loading::before {
   animation: ellipsis 2s linear infinite;
   letter-spacing: 2px;

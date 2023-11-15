@@ -76,16 +76,6 @@
   padding: 0;
 }
 
-@media screen and (hover: hover) {
-  .page__link:hover {
-    opacity: .7;
-  }
-
-  .page__button:hover {
-    opacity: .8;
-  }
-}
-
 .page__button:focus-visible {
   outline: 1px solid var(--color-light);
   outline-offset: 1px;
@@ -96,6 +86,10 @@
   outline: none;
   box-sizing: border-box;
   padding: 0;
+}
+
+.page__button:disabled {
+  opacity: 0.7;
 }
 
 .page__input:focus {
@@ -114,5 +108,12 @@
 @media (prefers-reduced-motion: no-preference) {
   .smooth-scroll {
     scroll-behavior: smooth;
+  }
+}
+
+@media screen and (hover: hover) {
+  .page__link:hover,
+  .page__button:hover {
+    opacity: .7;
   }
 }

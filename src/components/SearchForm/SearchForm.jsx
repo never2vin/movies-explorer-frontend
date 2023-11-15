@@ -12,6 +12,7 @@ function SearchForm({
   onSubmit,
 }) {
   const [value, setValue] = useState(searchValue || '');
+  const [isRequired, setIsRequired] = useState(false);
 
   const handleChange = (e) => {
     const input = e.target;
@@ -28,9 +29,10 @@ function SearchForm({
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (value === '') return;
+    if (value === '') return setIsRequired(true);
 
     onSubmit(value);
+    setIsRequired(false);
   };
 
   return (
@@ -46,7 +48,7 @@ function SearchForm({
               value={value || ''}
               onChange={handleChange}
               placeholder="Фильм"
-              required
+              required={isRequired || false}
               autoFocus
               aria-describedby="search-error"
               aria-invalid="true"
