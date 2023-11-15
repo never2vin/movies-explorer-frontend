@@ -35,7 +35,7 @@ function Form({ formType, formValues, onSubmit }) {
   }
 
   useEffect(() => {
-    reset(formValues);
+    if (pathname === '/profile') reset(formValues);
     // eslint-disable-next-line
   }, [formValues, isEdit]);
 
