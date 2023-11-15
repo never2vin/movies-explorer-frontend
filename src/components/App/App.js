@@ -95,7 +95,7 @@ function App() {
         .then((data) => {
           const [user, movies] = data;
           setCurrentUser(user);
-          setSavedMovies(movies);
+          setSavedMovies(movies.filter((i) => i.owner === user._id));
           setMoviesState({
             ...moviesState,
             isShortChecked: false,
