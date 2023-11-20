@@ -1,12 +1,12 @@
 import './MoreButton.css';
 
-function MoreButton({ handleMoreClick }) {
+function MoreButton({ onClick }) {
   return (
     <div className="more">
       <button
         type="button"
         className={'page__button more__button'}
-        onClick={handleMoreClick}
+        onClick={onClick}
       >
         Ещё
       </button>

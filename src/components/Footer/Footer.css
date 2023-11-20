@@ -1,6 +1,7 @@
 .footer {
   width: calc(100% - 70px * 2);
   font-size: 13px;
+  font-feature-settings: 'clig' off, 'liga' off;
   line-height: 16px;
   margin: 0 auto;
 }
@@ -13,6 +14,7 @@
 .footer__heading {
   color: #8b8b8b;
   font-size: 13px;
+  font-feature-settings: 'clig' off, 'liga' off;
   font-weight: 400;
   line-height: 16px;
   text-align: center;

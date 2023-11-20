@@ -1,12 +1,11 @@
 import { useContext } from 'react';
 
 import { Link } from 'react-router-dom';
+import { CurrentUserContext } from 'contexts/CurrentUserContext';
+import logo from 'images/header_logo.svg';
+import Form from 'components/Form/Form';
 
 import './Login.css';
-
-import { CurrentUserContext } from '../../contexts/CurrentUserContext';
-import logo from '../../images/header_logo.svg';
-import Form from '../Form/Form';
 
 function Login({ onSubmit }) {
   const { email } = useContext(CurrentUserContext);

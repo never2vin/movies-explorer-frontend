@@ -15,6 +15,8 @@
 
 Адрес репозитория: https://github.com/never2vin/movies-explorer-frontend
 
+Ссылка на пул реквест level-3: https://github.com/never2vin/movies-explorer-frontend/pull/2
+
 ## Ссылки на проект
 
 [Frontend](https://diploma.nomoredomainsrocks.ru)
